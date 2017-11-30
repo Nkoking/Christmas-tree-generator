@@ -1,4 +1,4 @@
 # Christmas-tree-generator 
-create beatifyl christmas tree in python
+create beatiful christmas tree in python
 
 ![](tree.png)
