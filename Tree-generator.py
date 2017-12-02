@@ -1,7 +1,9 @@
 import random
 import math
+from colorama import *
+init()
 #random characters for decorations
-chars = ["#", "@","*"]
+chars = ["#", "@","*","o"]
 
 #measurements
 def tree(height):
@@ -9,20 +11,29 @@ def tree(height):
     standwidth = height * 2
     standbottom = str(chr(9620) * 5)
     #print the star
-    print(" " * math.ceil(width/2 + 2) + "★" + " " * round(width/2 + .5))
+    print(" " * math.ceil(width/2 + 2) + Fore.YELLOW + "★")
     #For the length of the tree print the tree
     for layer in range(1,height):
         #print whitespace and a pineneedle
-        print(" " * math.ceil(width/2) + "<", end="")
-        #for loop to print random characters
+        print(" " * math.ceil(width/2) + Fore.GREEN + "<", end="")
+        #for loop to print random characters with color
         for i in range(layer * 2 + 1):
-            print(random.choice(chars), end="")
+            randchar = random.choice(chars)
+            if randchar == "#":
+                print(Fore.GREEN + "#", end="")
+            elif randchar == "o":
+                print(Fore.CYAN + "o", end="")
+            elif randchar == "*":
+                print(Fore.RED + "*", end="")
+            elif randchar == "@":
+                print(Fore.YELLOW + "@", end="")
+            else: pass
         #print pineneedles
-        print(">")
+        print(Fore.GREEN + ">")
         #delete whitespace
         width -= 2
     #print the stand
-    print(" " * math.ceil(standwidth/2) + "|" + "  " + "|")
+    print(Fore.BLUE + " " * math.ceil(standwidth/2) + "|" + "  " + "|")
     print(" " * math.ceil(standwidth/2 - 1) + standbottom)
 
 height = input("Tree height: ")
