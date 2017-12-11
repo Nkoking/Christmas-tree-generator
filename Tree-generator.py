@@ -1,5 +1,6 @@
 import random
 import math
+import os
 from colorama import *
 init()
 #random characters for decorations
@@ -36,5 +37,6 @@ def tree(height):
     print(Fore.BLUE + " " * math.ceil(standwidth/2) + "|" + "  " + "|")
     print(" " * math.ceil(standwidth/2 - 1) + standbottom)
 
+os.system("cls" if os.name == "nt" else "clear")
 height = input("Tree height: ")
 tree(int(height))
